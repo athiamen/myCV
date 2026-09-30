@@ -5,9 +5,6 @@
 @prefix cv:     <http://example.com/ns#> .
 @prefix dct:    <http://purl.org/dc/terms/> .
 
-# ─────────────────────────────────────────────
-# Personne
-# ─────────────────────────────────────────────
 cv:Antoine_THIAMENY a schema:Person, foaf:Person ;
   schema:givenName "Antoine" ;
   schema:familyName "THIAMENY" ;
@@ -34,9 +31,6 @@ cv:Antoine_THIAMENY a schema:Person, foaf:Person ;
   dct:created "2023-10-15"^^xsd:date ;
   dct:modified "2026-09-30"^^xsd:date .
 
-# ─────────────────────────────────────────────
-# Établissements
-# ─────────────────────────────────────────────
 cv:UTC a schema:CollegeOrUniversity ;
   schema:name "Université de Technologie de Compiègne (UTC)"@fr ;
   schema:address [ a vcard:Address ; vcard:locality "Compiègne" ; vcard:country-name "France"@fr ] .
@@ -45,9 +39,6 @@ cv:Lycee_Einstein a schema:HighSchool ;
   schema:name "Lycée Albert Einstein"@fr ;
   schema:address [ a vcard:Address ; vcard:locality "Bagnols-sur-Cèze" ; vcard:country-name "France"@fr ] .
 
-# ─────────────────────────────────────────────
-# Formation
-# ─────────────────────────────────────────────
 cv:edu_utc a schema:EducationalOccupationalCredential ;
   schema:name "Prépa intégrée | Cycle ingénieur, Département Génie Informatique"@fr ;
   schema:recognizedBy cv:UTC ;
@@ -60,9 +51,6 @@ cv:edu_bac a schema:EducationalOccupationalCredential ;
   schema:endDate "2021"^^xsd:gYear ;
   schema:description "Mention Très Bien."@fr .
 
-# ─────────────────────────────────────────────
-# Expériences professionnelles
-# ─────────────────────────────────────────────
 cv:we_epsf a schema:Role ;
   schema:roleName "Assistant ingénieur"@fr ;
   schema:memberOf [ schema:name "Établissement Public de Sécurité Ferroviaire (EPSF), Amiens, France"@fr ] ;
@@ -84,9 +72,6 @@ cv:we_cafe_oustal a schema:Role ;
   schema:endDate "2021-09"^^xsd:gYearMonth ;
   schema:description "Mise en place du poste des entrées et formation des commis de cuisine dans un environnement à fort rythme."@fr .
 
-# ─────────────────────────────────────────────
-# Compétences
-# ─────────────────────────────────────────────
 cv:skills a schema:ItemList ;
   schema:name "Compétences"@fr ;
   schema:itemListElement (
@@ -106,9 +91,6 @@ cv:skills a schema:ItemList ;
     "Gestion de projet"@fr
   ) .
 
-# ─────────────────────────────────────────────
-# Projets
-# ─────────────────────────────────────────────
 cv:projects a schema:ItemList ;
   schema:name "Projets"@fr ;
   schema:itemListElement (
@@ -123,9 +105,6 @@ cv:projects a schema:ItemList ;
     "Gestion de projet - Conception d'une application de partage vidéo"@fr
   ) .
 
-# ─────────────────────────────────────────────
-# Contact
-# ─────────────────────────────────────────────
 cv:contact a schema:ContactPoint ;
   schema:telephone "+33787249373" ;
   schema:email "antoine.thiameny@etu.utc.fr" .
