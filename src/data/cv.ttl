@@ -1,110 +1,96 @@
 @prefix schema: <http://schema.org/> .
-@prefix foaf:   <http://xmlns.com/foaf/0.1/> .
-@prefix vcard:  <http://www.w3.org/2006/vcard/ns#> .
-@prefix xsd:    <http://www.w3.org/2001/XMLSchema#> .
-@prefix cv:     <http://example.com/ns#> .
-@prefix dct:    <http://purl.org/dc/terms/> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix vcard: <http://www.w3.org/2006/vcard/ns#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix cv: <http://example.com/ns#/> .
+@prefix dct: <http://purl.org/dc/terms/> .
 
 cv:Antoine_THIAMENY a schema:Person, foaf:Person ;
-  schema:givenName "Antoine" ;
-  schema:familyName "THIAMENY" ;
-  schema:name "Antoine THIAMENY"@fr ;
-  schema:jobTitle "Stage Ingénieur Informatique"@fr ;
-  cv:speciality "Système Informatique | Développement Logiciel"@fr ;
-  schema:description "Élève ingénieur rigoureux et dynamique, doté d'un excellent sens du relationnel et d'un véritable esprit d'équipe. Ponctuel, polyvalent et passionné par l'informatique, je reste à l'écoute des besoins de ceux qui m'entourent."@fr ;
+  schema:name "THIAMENY Antoine"@fr ;
+  schema:description "Élève ingénieur, rigoureux et dynamique ayant un sens du relationnel. Un esprit d'équipe attentif aux besoins des employés. Ponctuel et multitâche, passionné par l'informatique et toujours à l'écoute."@fr ;
   schema:telephone "+33787249373" ;
-  schema:email "antoine.thiameny@etu.utc.fr" ;
+  schema:email ("thiameny@icloud.com" "antoine.thiameny@etu.utc.fr") ;
   schema:address [
-    a vcard:Address ;
+    a vcard:Addresse ;
+    vcard:postal-code "60200" ;
     vcard:locality "Compiègne" ;
     vcard:country-name "France"@fr
   ] ;
-  cv:interests ( "Cuisine"@fr "Lecture"@fr "Scoutisme"@fr "Escalade"@fr ) ;
-  cv:language [ cv:languageName "Français"@fr ; cv:proficiency "Langue natale"@fr ] ,
-              [ cv:languageName "Anglais"@fr ; cv:proficiency "B2" ] ;
+  cv:interests ("Scoutisme"@fr "Randonnée"@fr "Escalade en nature"@fr "Lecture"@fr "Musique"@fr "Football"@fr "Rugby"@fr "Danse"@fr) ;
+  cv:language [ cv:languageName "Français"@fr ; cv:proficiency "Courant"@fr ] ,
+               [ cv:languageName "Anglais"@en ; cv:proficiency "B1"@en ] ;
   schema:alumniOf cv:UTC ;
-  cv:education ( cv:edu_utc cv:edu_bac ) ;
-  cv:workExperience ( cv:we_epsf cv:we_weldom cv:we_cafe_oustal ) ;
+  cv:education (cv:edu_prepa cv:edu_ingenieur cv:edu_lycee) ;
+  cv:workExperience (cv:we_weldom cv:we_cafe_oustal cv:we_saur cv:we_stage_assistant_ingenieur ) ;
+  cv:awards (cv:award_bourse) ;
+  cv:authors (cv:contact) ;
   cv:skills cv:skills ;
-  cv:projects cv:projects ;
-  cv:authors ( cv:contact ) ;
   dct:created "2023-10-15"^^xsd:date ;
-  dct:modified "2026-09-30"^^xsd:date .
+  dct:modified "2025-11-23"^^xsd:date .
 
-cv:UTC a schema:CollegeOrUniversity ;
+cv:UTC a schema:University ;
   schema:name "Université de Technologie de Compiègne (UTC)"@fr ;
-  schema:address [ a vcard:Address ; vcard:locality "Compiègne" ; vcard:country-name "France"@fr ] .
+  schema:description "Depuis septembre 2021 : Étudiant à la formation post bac (Prépa intégrée). Depuis février 2024 : Élève ingénieur au Département Génie Informatique."@fr .
 
-cv:Lycee_Einstein a schema:HighSchool ;
-  schema:name "Lycée Albert Einstein"@fr ;
-  schema:address [ a vcard:Address ; vcard:locality "Bagnols-sur-Cèze" ; vcard:country-name "France"@fr ] .
+cv:edu_prepa a schema:EducationalOccupationalCredential ;
+  schema:name "Prépa intégrée (UTC)"@fr ;
+  schema:startDate "2021-09" ;
+  schema:endDate "2024-02" ;
+  schema:description "Étudiant à la formation post-bac de l'université de technologie (Prépa intégrée)."@fr .
 
-cv:edu_utc a schema:EducationalOccupationalCredential ;
-  schema:name "Prépa intégrée | Cycle ingénieur, Département Génie Informatique"@fr ;
-  schema:recognizedBy cv:UTC ;
-  schema:startDate "2021"^^xsd:gYear ;
-  schema:endDate "2026"^^xsd:gYear .
+cv:edu_ingenieur a schema:EducationalOccupationalCredential ;
+  schema:name "Élève ingénieur, Département Génie Informatique (UTC)"@fr ;
+  schema:startDate "2024-02" ;
+  schema:description "Formation d'ingénieur en Génie Informatique."@fr .
 
-cv:edu_bac a schema:EducationalOccupationalCredential ;
-  schema:name "Baccalauréat général"@fr ;
-  schema:recognizedBy cv:Lycee_Einstein ;
+cv:edu_lycee a schema:EducationalOccupationalCredential ;
+  schema:name "Lycée Albert Einstein de Bagnols-sur-Cèze"@fr ;
   schema:endDate "2021"^^xsd:gYear ;
-  schema:description "Mention Très Bien."@fr .
+  schema:description "Baccalauréat session 2021 - Mention Très Bien. Lauréat Bourse de la Fondation Francis Bouygues (bourse au mérite)."@fr .
 
-cv:we_epsf a schema:Role ;
-  schema:roleName "Assistant ingénieur"@fr ;
-  schema:memberOf [ schema:name "Établissement Public de Sécurité Ferroviaire (EPSF), Amiens, France"@fr ] ;
-  schema:startDate "2025-09"^^xsd:gYearMonth ;
-  schema:endDate "2026-02"^^xsd:gYearMonth ;
-  schema:description "Définition et mise en place des règles de qualité pour la validation des données. Conception d'une pipeline de déclaration automatique des données. Mise en place d'indicateurs de performance sur la qualité des données de sécurité ferroviaire. Analyse de données."@fr .
+cv:award_bourse a schema:Award ;
+  schema:name "Bourse de la Fondation Francis Bouygues"@fr ;
+  schema:description "Lauréat - Boursier au mérite (sélectionnant 100 bacheliers par an en France)."@fr ;
+  schema:startDate "2021-09" .
 
 cv:we_weldom a schema:Role ;
-  schema:roleName "Assistant logisticien"@fr ;
+  schema:roleName "Assistant logisticien (Stage ouvrier)"@fr ;
   schema:memberOf [ schema:name "Weldom, Bagnols-sur-Cèze, France"@fr ] ;
-  schema:startDate "2022-01"^^xsd:gYearMonth ;
-  schema:endDate "2022-02"^^xsd:gYearMonth ;
-  schema:description "Supervision des commandes, inventaire et pointage journalier, gestion du stock et préparation des commandes clients."@fr .
+  schema:startDate "2022-01-16" ;
+  schema:endDate "2022-02-20" ;
+  schema:description "Aide à la supervision des commandes du magasin. Inventaire et pointage journalier des produits livrés. Gestion des bons de commande. Préparation des commandes et gestion du stock à l'entrepôt."@fr .
 
 cv:we_cafe_oustal a schema:Role ;
-  schema:roleName "Assistant cuisinier"@fr ;
-  schema:memberOf [ schema:name "Café de l'Oustal, Uzès, France"@fr ] ;
-  schema:startDate "2021-07"^^xsd:gYearMonth ;
-  schema:endDate "2021-09"^^xsd:gYearMonth ;
-  schema:description "Mise en place du poste des entrées et formation des commis de cuisine dans un environnement à fort rythme."@fr .
+  schema:roleName "Assistant Cuisinier (Contrat saisonnier)"@fr ;
+  schema:memberOf [ schema:name "Bar Restaurant Café de l'Oustal, Uzès, France"@fr ] ;
+  schema:startDate "2021-07-01" ;
+  schema:endDate "2021-08-31" ;
+  schema:description "Mise en place du poste des entrées. Formation des commis de cuisine. Travail intense favorisant la réactivité et le dynamisme."@fr .
+
+cv:we_saur a schema:Role ;
+  schema:roleName "Élève stagiaire (Station d'épuration)"@fr ;
+  schema:memberOf [ schema:name "Station d'épuration (SAUR) — Bagnols-sur-Cèze, France"@fr ] ;
+  schema:startDate "2019-03-11" ;
+  schema:endDate "2019-04-06" ;
+  schema:description "Maintenance et entretien des hélices des bassins. Contrôle des niveaux d'arrivée des déchets. Analyse hebdomadaire de la pureté de l'eau en laboratoire."@fr .
+
+cv:we_stage_assistant_ingenieur a schema:Role ;
+  schema:roleName "Stage assistant ingénieur — Ingénierie des systèmes informatiques - Développement"@fr ;
+  schema:startDate "2025-09" ;
+  schema:endDate "2026-02" ;
+  schema:description "Stage assistant ingénieur en ingénierie des systèmes informatiques, axé sur le développement."@fr .
 
 cv:skills a schema:ItemList ;
-  schema:name "Compétences"@fr ;
   schema:itemListElement (
-    "Python"
-    "C / C++ / C#"
-    "Java / JavaScript"
-    "SQL, PHP, HTML/CSS"
-    "React, Spring Boot, TypeScript"
-    "Go, Rust"
-    "SPARQL / SHACL"
-    "Qt Creator"
-    "Unity"
-    "Cybersécurité"@fr
-    "Automatique & Capteurs intelligents"@fr
-    "Bases de données"@fr
-    "Analyse de données"@fr
-    "Gestion de projet"@fr
-  ) .
-
-cv:projects a schema:ItemList ;
-  schema:name "Projets"@fr ;
-  schema:itemListElement (
-    "Seven Wonders Duel - Jeu vidéo de plateau"@fr
-    "Jeu vidéo en réalité virtuelle (Casque ou CAVE VR)"@fr
-    "Jeu stratégique à somme nulle - moteur de décision IA"@fr
-    "Base de données de bibliothèque - gestion d'emprunts"@fr
-    "Développement Web - Application de messagerie"@fr
-    "Développement Mobile - Sensibilisation Cybersécurité"@fr
-    "Utilisation de modèles de données pour la prédiction"@fr
-    "MOE - Gestion de projet - Restauration d'un bar à Compiègne"@fr
-    "Gestion de projet - Conception d'une application de partage vidéo"@fr
+    "Gestion et Technique de création de projet (Business Plan)"@fr
+    "Développement d'une simulation avec WITNESS"@fr
+    "Base de données de gestion d'une bibliothèque (SQL, Python)"@fr
+    "Création d'un jeu vidéo : Seven Wonders duel (C++, Qt Creator)"@fr
+    "Interface de gestion d'une auto-école (HTML, CSS, PHP)"@fr
+    "Création d'un jeu vidéo VR (Unity, CSharp)"@fr
+    "Création d'un jeu stratégique à somme nulle (Python, IA)"@fr
   ) .
 
 cv:contact a schema:ContactPoint ;
   schema:telephone "+33787249373" ;
-  schema:email "antoine.thiameny@etu.utc.fr" .
+  schema:email ( "thiameny@icloud.com" "antoine.thiameny@etu.utc.fr" ) .
